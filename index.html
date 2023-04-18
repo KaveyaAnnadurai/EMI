@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emi</title>
+    <style>
+        body{
+            background-image: linear-gradient(pink,lightgreen);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15%;
+            height: 100vh;
+        }
+        .frm{
+             font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 1.5px;
+            line-height: 10px;
+            font-size: larger;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button{
+            background-color:  palevioletred;
+            border-radius: 10%;
+            font-size: inherit;          
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color:  palevioletred; font-weight: bold; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: #000 0px 0px 1px;  text-align: center;">Emi Calculator</h2>
+    <form class="frm">
+        <table>
+            <tr>
+<td>
+    <label>Enter pricipal amount:</label>
+
+</td>
+<td>
+    <input type="text"  id="p"><br>
+         
+</td>
+              </tr>
+
+<tr>
+<td>
+    <label >Enter rate of interest:</label>
+   
+</td>
+<td><input type="text" id="r"></td>
+    
+</tr>
+
+<tr><td>  <label >Enter number of months:</label>
+</td>
+      <td> <input type="text" id="n"></td>
+    
+</tr><br>
+<tr>
+    <td style="text-align: center;">  <button onclick="calculate(event)" class="button">Calculate</button>
+    </td>
+    <td style="text-align: center;">
+        <button onclick="clear()" class="button">Clear All</button>
+    </td>
+    
+   
+</tr>
+<tr>
+    <td>Emi is:</td>
+    <td>   <input type="text" id = "emi">
+    </td>
+  
+  </tr>
+
+</table>
+    </form>
+    <script>
+        var ans=0,p =0,r=0,n=0;
+        // EMI = [P x R x (1+R) ^ N] / [(1+R) ^ (N-1)]
+        function calculate(event){
+            event.preventDefault()
+            console.log("jii");
+             p = document.getElementById("p").innerHTML;
+            //  p=document.querySelector("#p").value;
+            r = parseFloat(document.getElementById("r").value);
+            n = parseFloat(document.getElementById("n").value);
+            console.log(p);
+            // ans = (p*r*(1+r)^n)/((1+r)^(n-1));
+            ans = (p*(r*0.01))/n;
+            ans= ((p/n)+ans).toFixed(2);
+            document.getElementById("emi").value = ans;
+           
+        }
+
+    </script>
+</body>
+</html>
